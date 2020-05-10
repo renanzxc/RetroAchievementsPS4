@@ -1,0 +1,28 @@
+{
+    "games": [
+        {
+            "id": 2,
+            "title": "Dragon Ball: Advanced Adventure",
+            "cover": "https://retroachievements.org/Images/024370.png",
+            "plataform":"GBA",
+            "achievements_percent": "12",
+            "number_achievements": 20
+        },
+        {
+            "id": 232,
+            "title": "Super Mario Kart",
+            "cover": "https://retroachievements.org/Images/003665.png",
+            "plataform":"SNES",
+            "achievements_percent": "9",
+            "number_achievements": 4
+        },
+        {
+            "id": 1,
+            "title": "Sonic the Hedgehog",
+            "cover": "https://retroachievements.org/Images/016743.png",
+            "plataform":"Mega Drive",
+            "achievements_percent": "90",
+            "number_achievements": 22
+        }
+    ]
+}

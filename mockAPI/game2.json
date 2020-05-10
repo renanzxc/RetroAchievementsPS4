@@ -1,0 +1,17 @@
+{
+    "title":"Dragon Ball: Advanced Adventure",
+    "cover": "https://retroachievements.org/Images/024370.png",
+    "plataform": "GBA",
+    "achievements": [
+        {
+            "title": "Dragon Radar",
+            "description": "Find the Dragon Radar",
+            "cover": "https://s3-eu-west-1.amazonaws.com/i.retroachievements.org/Badge/17579.png",
+            "percent_players": "94.03",
+            "number_players": 867,
+            "of_players": 922,
+            "unlocked_on_data": "2020-04-18",
+            "unlocked_on_time": "22:34:31"
+        }
+    ]
+}

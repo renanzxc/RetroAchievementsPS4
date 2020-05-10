@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <title>Achievements - Dragon Ball: Advanced Adventure</title>
+</head>
+<body >
+  <h1 class="title">Achievements</h1>
+  <hr>
+  <section class="game-info-top">
+    
+  </section>
+
+  <section class="games" style="justify-content: center;">
+    
+  </section>
+
+  <hr >
+</body>
+
+<script src="js/keyActions.js"/></script>
+<script src="js/generateHtml.js"/></script>
+<script>
+  window.onload = async () => {
+    let gameId = new URLSearchParams(window.location.search).get('id')
+    await fetch("http://localhost:3000/user/teste/game/"+gameId)
+    .then(res => res.json())
+    .then(json => generateGameHtml(json))
+    .then(result => {
+      let {gameInfoHtml, achievementsHtml} = result
+      document.querySelector(".game-info-top").innerHTML = gameInfoHtml
+
+      let section = document.querySelector('.games')
+      section.style = ""
+      
+      section.innerHTML = achievementsHtml
+    })
+    moveKeys('game-achievements')
+  } 
+</script>
+</html>
