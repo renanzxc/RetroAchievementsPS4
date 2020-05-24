@@ -56,6 +56,5 @@ function generateGameHtml(game){
     </a>
     `
   })
-  console.log(gameInfoHtml)
   return {gameInfoHtml, achievementsHtml}
 }

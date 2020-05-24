@@ -9,14 +9,7 @@
 </head>
 <body >
   <div class="container">
-    <div class="login">
-      <h2>Retro Achievements PS4</h2>
-      <form class="login-form">
-        <input autofocus type="text">
-        <button type="submit">Login</button>
-      </form>
-      <p>Your username in <a href="https://retroachievements.org/">Retro Achievements</a></p>
-    </div>
+    
   </div>
   <h1 class="title">Achievements</h1>
   <hr>
@@ -30,10 +23,10 @@
 <script src="js/keyActions.js"/></script>
 <script src="js/generateHtml.js"/></script>
 <script>
-  document.querySelector(".login-form").onsubmit = async (event) => {
-    event.preventDefault();
+  async function getUserGames(username){
     document.querySelector(".container").innerHTML = '<div class="loader"></div>'
-    await fetch("http://localhost:3000/user/teste/games")
+
+    await fetch(`http://localhost:3000/user/${username}/games`)
     .then(res => res.json())
     .then(json => generateGamesHtml(json.games))
     .then(gamesHtml => {
@@ -46,5 +39,33 @@
 
     moveKeys()
   }
+
+  window.onload = async () => {
+    let username = localStorage.getItem('username')
+    if (username) {
+      await getUserGames(username)
+    } else {
+      document.querySelector(".container").innerHTML = `
+        <div class="login">
+          <h2>Retro Achievements PS4</h2>
+          <form class="login-form">
+            <input autofocus type="text" id="username">
+            <button type="submit">Login</button>
+          </form>
+          <p>Your username in <a href="https://retroachievements.org/">Retro Achievements</a></p>
+        </div>
+      `
+
+      const loginForm = document.querySelector(".login-form")
+
+      loginForm.onsubmit = async (event) => {
+        event.preventDefault()
+        username = document.querySelector("#username").value
+        localStorage.setItem('username', username)
+
+        await getUserGames(username)
+      }
+    }
+  }  
 </script>
 </html>

@@ -24,9 +24,8 @@
 <script src="js/keyActions.js"/></script>
 <script src="js/generateHtml.js"/></script>
 <script>
-  window.onload = async () => {
-    let gameId = new URLSearchParams(window.location.search).get('id')
-    await fetch("http://localhost:3000/user/teste/game/"+gameId)
+  async function getGameAchievements(username, gameId){
+    await fetch(`http://localhost:3000/user/${username}/game/${gameId}`)
     .then(res => res.json())
     .then(json => generateGameHtml(json))
     .then(result => {
@@ -38,7 +37,19 @@
       
       section.innerHTML = achievementsHtml
     })
+
     moveKeys('game-achievements')
+  }
+
+  window.onload = async () => {
+    let username = localStorage.getItem('username')
+    let gameId = new URLSearchParams(window.location.search).get('id')
+    if (username && gameId){
+      await getGameAchievements(username, gameId)
+    } else {
+      window.location.replace('/')
+    }
+    console.log(gameId)
   } 
 </script>
 </html>
