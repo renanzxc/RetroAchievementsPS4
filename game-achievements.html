@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/game-achievements.css">
-  <title>Achievements - Dragon Ball: Advanced Adventure</title>
+  <title></title>
 </head>
 <body >
   <h1 class="title">Achievements</h1>
@@ -18,25 +18,24 @@
     
   </section>
 
-  <hr >
+  <hr>
 </body>
 
+<script src="js/common.js"/></script>
 <script src="js/keyActions.js"/></script>
 <script src="js/generateHtml.js"/></script>
 <script>
   async function getGameAchievements(username, gameId){
-    await fetch(`http://localhost:3000/user/${username}/game/${gameId}`)
-    .then(res => res.json())
-    .then(json => generateGameHtml(json))
-    .then(result => {
-      let {gameInfoHtml, achievementsHtml} = result
-      document.querySelector(".game-info-top").innerHTML = gameInfoHtml
+    let games = JSON.parse(localStorage.getItem("gamesInfo"))
+    document.title = games[gameId].title
+    
+    let {gameInfoHtml, achievementsHtml} = generateGameHtml(games[gameId])
+    document.querySelector(".game-info-top").innerHTML = gameInfoHtml
 
-      let section = document.querySelector('.games')
-      section.style = ""
-      
-      section.innerHTML = achievementsHtml
-    })
+    let section = document.querySelector('.games')
+    section.style = ""
+    
+    section.innerHTML = achievementsHtml
 
     moveKeys('game-achievements')
   }
@@ -49,7 +48,6 @@
     } else {
       window.location.replace('/')
     }
-    console.log(gameId)
   } 
 </script>
 </html>

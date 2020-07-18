@@ -1,3 +1,56 @@
-.games {
-  height: 307px;
+@media only screen and (min-height: 600px) and (max-height: 720px) {
+  .games {
+    height: 342px;
+  }
+}
+
+@media only screen and (min-height: 720px) and (max-height: 1080px) {
+  .games {
+    height: 456px;
+  }
+}
+
+hr {
+  margin-bottom: 0px;
+}
+
+
+.achieve-info {
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  width: 40%;
+}
+
+.achieve-info > h2 {
+  font-weight: 500;
+  margin: 0px;
+}
+
+.achieve-info > p{
+  margin: 0px;
+  font-weight: 400;
+} 
+
+.achieve-info-top{
+  display: flex;
+  justify-content: center;
+}
+
+.game-info2{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 38%;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.game-info2 > p {
+  margin: 0px;
+}
+
+.game-info2 > p > span{
+  font-weight: 700;
+  color: white;
 }

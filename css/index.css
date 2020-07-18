@@ -27,8 +27,19 @@ hr {
   flex-direction: column;
   align-items: center;
   overflow:auto;
-  height: 420px;
   scroll-behavior: smooth;
+}
+
+@media only screen and (min-height: 600px) and (max-height: 720px) {
+  .games {
+    height: 420px;
+  }
+}
+
+@media only screen and (min-height: 720px) and (max-height: 1080px) {
+  .games {
+    height: 548px;
+  }
 }
 
 .games::-webkit-scrollbar       {background:white;width: 8px}
@@ -63,7 +74,6 @@ hr {
   margin: 15px;
   width: 103px;
   height: 103px;
-  background-color: white;
   object-fit: cover;
 }
 
@@ -88,6 +98,27 @@ hr {
   border-radius: 5px;
   margin-top: 10px;
 }
+
+.plataform-medium{
+  color: #073fac;
+  font-weight: 1000;
+  width: 100px;
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.plataform-larger{
+  color: #073fac;
+  font-weight: 1000;
+  width: 180px;
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
 
 .achievements-info{
   width: 40%;

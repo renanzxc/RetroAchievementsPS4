@@ -25,5 +25,6 @@ Application to view your trophies from [Retroachievements](https://retroachievem
 ![](screenshots/screenshot3.png)
 
 ## Credits
-Icons from: [Icons8](https://icons8.com.br/)
+Icons from: [Icons8](https://icons8.com.br/) [freeicons](https://freeicons.io/)
+
 PS4 interface: [Playstation](https://www.playstation.com)

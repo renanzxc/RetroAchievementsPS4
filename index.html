@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="css/login.css">
   <title>Achievements</title>
 </head>
-<body >
+ 
+</style>
+<body style="z-index: 1;">
   <div class="container">
     
   </div>
@@ -18,32 +20,28 @@
 
   </section>
   <hr >
+
 </body>
 
 <script src="js/keyActions.js"/></script>
+<script src="js/getData.js"/></script>
 <script src="js/generateHtml.js"/></script>
 <script>
-  async function getUserGames(username){
-    document.querySelector(".container").innerHTML = '<div class="loader"></div>'
-
-    await fetch(`http://localhost:3000/user/${username}/games`)
-    .then(res => res.json())
-    .then(json => generateGamesHtml(json.games))
-    .then(gamesHtml => {
-      document.querySelector(".container").remove()
-      let section = document.querySelector('.games')
-      section.style = ""
-
-      section.innerHTML = gamesHtml
-    })
-
-    moveKeys()
-  }
-
   window.onload = async () => {
     let username = localStorage.getItem('username')
     if (username) {
-      await getUserGames(username)
+      let gamesData = await getUserGames(username)
+
+      document.querySelector(".container").remove()
+
+      let section = document.querySelector('.games')
+      section.style = ""  
+      
+      section.innerHTML = gamesData.gamesHtml
+      
+      localStorage.setItem("gamesInfo", JSON.stringify(gamesData.gamesInfo))
+      
+      moveKeys()
     } else {
       document.querySelector(".container").innerHTML = `
         <div class="login">
