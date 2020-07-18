@@ -61,7 +61,16 @@
         username = document.querySelector("#username").value
         localStorage.setItem('username', username)
 
-        await getUserGames(username)
+        let gamesData = await getUserGames(username)
+
+        document.querySelector(".container").remove()
+
+        let section = document.querySelector('.games')
+        section.style = ""  
+        
+        section.innerHTML = gamesData.gamesHtml
+        
+        localStorage.setItem("gamesInfo", JSON.stringify(gamesData.gamesInfo))
       }
     }
   }  
